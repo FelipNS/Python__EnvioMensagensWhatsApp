@@ -31,5 +31,3 @@ class WANavagation:
         sleep(3)
         self.nav.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/div/div[2]/div[2]/div/div/span').click()
         sleep(10)
-
-
