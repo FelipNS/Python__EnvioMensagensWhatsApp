@@ -9,4 +9,4 @@ class FolderAndFiles:
         try:
             os.makedirs(path)
         except FileExistsError:
-            print(f'Está pasta já existe')
+            pass
