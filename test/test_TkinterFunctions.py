@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilenames
-from test_dataColector import WANavagation
+from test_dataColector import WANavagation, start_browser, quit_browser
 
 
 class ListBoxManipulation:
@@ -47,4 +47,16 @@ class ListBoxManipulation:
     def selectFiles(self):
         return askopenfilenames()
 
+class SendFiles:
+
+    def __init__(self, widget, class_name):
+        self.values = widget.get(0, END)
+        start_browser()
+        WANavagation(class_name).open_chat_whatsapp()
+        for i in self.values:
+            if i[0:3] != 'C:/':
+                WANavagation(class_name).send_mensage(i)
+            else:
+                WANavagation(class_name).send_photos(i)
+        quit_browser()
 
