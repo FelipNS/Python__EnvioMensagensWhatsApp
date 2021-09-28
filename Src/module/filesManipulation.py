@@ -1,8 +1,9 @@
 import os
 
+
 class FolderAndFiles:
 
-    def __init__(self, path: str) -> None:
+    def __init__(self, path: str ='') -> None:
         self.path = path
 
     def createFolder(self, path: str):
@@ -10,3 +11,5 @@ class FolderAndFiles:
             os.makedirs(path)
         except FileExistsError:
             pass
+        
+
