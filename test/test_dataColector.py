@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from time import sleep
+from test_filesManipulation import FolderAndFiles
 
 class WANavagation:
 
@@ -22,12 +23,13 @@ class WANavagation:
         self.nav.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div/div/div[2]/div[1]/div/div[2]').send_keys(Keys.ENTER)
         sleep(20)
     
-    def send_photos(self, path_midia: str):
+    def send_photos(self):
         WANavagation.open_chat_whatsapp(self)
         sleep(5)
+        path_midia = FolderAndFiles().selectFiles()
         self.nav.find_element_by_css_selector('span[data-icon="clip"]').click()
-        sleep(3)
-        self.nav.find_element_by_css_selector('input[type="file"]').send_keys(f'{path_midia}')
+        for i in path_midia:
+            self.nav.find_element_by_css_selector('input[type="file"]').send_keys(f'{i}')
         sleep(3)
         self.nav.find_element_by_xpath('//*[@id="app"]/div[1]/div[1]/div[2]/div[2]/span/div[1]/span/div[1]/div/div[2]/div/div[2]/div[2]/div/div/span').click()
         sleep(10)
