@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilenames
-from tkinter.messagebox import showwarning
+from tkinter.messagebox import showwarning, showinfo
 from test_dataColector import WANavagation, start_browser, quit_browser
 import mysql.connector
 from mysql.connector import errorcode
@@ -95,7 +95,7 @@ class ListBoxManipulation:
 
 class SendFiles:
 
-    def __init__(self, widget, class_name):
+    def __init__(self, widget, class_name, master, *args):
         self.values = widget.get(0, END)
         if not self.is_empty(class_name):
             start_browser()
@@ -106,17 +106,34 @@ class SendFiles:
                 else:
                     WANavagation(class_name).send_midia(i)
             quit_browser()
+            self.clear_widget(args)
+            showinfo(title='Envio feito com sucesso!', message=f'O envio das menssagens para o {class_name} foi realizado com sucesso!', )
         else:
             showwarning(title='Nenhuma turma selecionada', message='Nenhuma turma selecionada. O programa foi interrompido!')
 
     def is_empty(self, widget):
         return True if widget == '' else False
 
+    def clear_widget(self, *widget):
+        j=0
+        while j < len(widget[0]):
+            str_widget = str(widget[0][j])
+            if str_widget == '.!labelframe2.!listbox':
+                wid = widget[0][j]
+                wid.delete(0, END)
+            elif str_widget == '.!labelframe4.!label':
+                wid = widget[0][j]
+                widget[0][j].configure(text='')
+            elif str_widget == '.!labelframe5.!combobox':
+                wid = widget[0][j]
+                widget[0][j].configure(values='')
+            j +=1
+
 class ClassManipulation:
 
     def __init__(self, master):
         self.master = master
-        self.root = Tk()
+        self.root = Toplevel(self.master)
         self.lbf_class = LabelFrame(self.root, text='  TURMAS REGISTRADAS  ')
         self.lbf_class.grid(row=0, rowspan=5, column=0, columnspan=4, padx=10, pady=10)
         self.lst_class = Listbox(self.lbf_class, selectmode=SINGLE, width=50)
@@ -136,7 +153,6 @@ class ClassManipulation:
         self.btn_save =Button(self.root, text='Salvar', justify=CENTER, width=5, command=lambda: self.save_changes())
         self.btn_save.grid(row=3, rowspan=2, column=5, padx=10, pady=(5,10), sticky=E)
 
-        self.root.mainloop()
 
     def load_classes(self):
         cursor = db_connection.cursor()
@@ -159,4 +175,3 @@ class ClassManipulation:
     
     def save_changes(self):
         self.root.destroy()
-        

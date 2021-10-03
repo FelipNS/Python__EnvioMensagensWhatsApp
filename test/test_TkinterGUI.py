@@ -58,7 +58,7 @@ class AttachFiles:
         self.lbf_archive = LabelFrame(self.master, text='  ORDEM DE ENVIO  ')
         self.lst_archive = Listbox(self.lbf_archive, width=50, height=10, selectmode=SINGLE)
         self.lst_archive.bind('<<ListboxSelect>>', self.show_name_file)
-        self.btn_send = Button(self.lbf_archive, text='ENVIAR', width=7, command=lambda: SendFiles(self.lst_archive, combobox_value))
+        self.btn_send = Button(self.lbf_archive, text='ENVIAR', width=7, command=lambda: SendFiles(self.lst_archive, combobox_value, self.master, self.lst_archive, self.lb_name_file, SelectClass().cb_classes))
         self.btn_new_archive = Button(self.lbf_archive, text='ANEXAR ARQUIVO', command=lambda: ListBoxManipulation(self.lst_archive).insert_listbox(ListBoxManipulation().selectFiles(), many_items=True), width=15) 
         self.btn_up = Button(self.lbf_archive, text='↑', width=5, command=lambda: ListBoxManipulation(self.lst_archive).up_item_list())
         self.btn_down = Button(self.lbf_archive, text='↓', width=5, command=lambda: ListBoxManipulation(self.lst_archive).down_item_list())
@@ -111,6 +111,8 @@ def main_aplication():
     pos_x = int((x/2) - (width/2))
     pos_y = int((y/2) - (height/2))
     root.geometry(f'{width}x{height}+{pos_x}+{pos_y}')
+    root.title('AUTOZAP')
+    root.iconbitmap('C:/Users/USER/OneDrive/Documentos/Programação/Python/Projetos/Envio_Fotos_WhatsApp/Src/Image/iconzap-complete.ico')
     
     Main(root)
     root.mainloop()
