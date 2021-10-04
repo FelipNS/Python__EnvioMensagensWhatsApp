@@ -3,11 +3,11 @@ O programa principal está no caminho **'Scr/scripts/'**
 
 Deve baixar os 3 módulos que estão neste caminho:
 
-[1]*TkinterGUI.py*
+[1] *TkinterGUI.py*
 
-[2]*TkinterFunctions.py*
+[2] *TkinterFunctions.py*
 
-[3]*dataColector.py*
+[3] *dataColector.py*
 
 **FUNCIONALIDADES DE CADA SCRIPT CITADO**
 
