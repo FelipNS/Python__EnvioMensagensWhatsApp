@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter.filedialog import askopenfilenames
 from tkinter.messagebox import showwarning, showinfo
 from dataColector import WANavagation, start_browser, quit_browser
+from selenium.common.exceptions import WebDriverException
 import mysql.connector
 from mysql.connector import errorcode
 
@@ -117,20 +118,25 @@ class SendFiles:
             class_name (str): Class name on WhatsApp
             widget_clear (tk.widget): Widget to clear content
         """
-        self.values = widget.get(0, END)
-        if not self.is_empty(class_name):
-            start_browser()
-            WANavagation(class_name).open_chat_whatsapp()
-            for i in self.values:
-                if i[0:3] != 'C:/':
-                    WANavagation(class_name).send_mensage(i)
-                else:
-                    WANavagation(class_name).send_midia(i)
-            quit_browser()
-            self.clear_widget(widget_clear)
-            showinfo(title='Envio feito com sucesso!', message=f'O envio das menssagens para o {class_name} foi realizado com sucesso!', )
-        else:
-            showwarning(title='Nenhuma turma selecionada', message='Nenhuma turma selecionada. O programa foi interrompido!')
+        try:
+            self.values = widget.get(0, END)
+            if not self.is_empty(class_name):
+                start_browser()
+                WANavagation(class_name).open_chat_whatsapp()
+                for i in self.values:
+                    if i[0:3] != 'C:/':
+                        WANavagation(class_name).send_mensage(i)
+                    else:
+                        WANavagation(class_name).send_midia(i)
+                quit_browser()
+                self.clear_widget(widget_clear)
+                showinfo(title='Envio feito com sucesso!', message=f'O envio das menssagens para o {class_name} foi realizado com sucesso!', )
+            else:
+                showwarning(title='Nenhuma turma selecionada', message='Nenhuma turma selecionada. O programa foi interrompido!')
+
+        except WebDriverException:
+            showwarning(title='ENVIO CANCELADO', message='O navegador foi fechado de forma inesperada. Selecione a turma novamente e tente fazer o envio.')
+
 
     def is_empty(self, class_name: str):
         """Analizes if str is empty or not
