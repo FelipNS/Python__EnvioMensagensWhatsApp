@@ -1,10 +1,8 @@
 # ENVIO DE ARQUIVO PELO WHATSAPP
-O programa principal está no caminho **'Scr/scripts/'**
-
 #### O programa foi desenvolvido para resolver ador da minha mãe que é professora eque todo dia precisava enviar as atividades manualmente para os alunos.
 #### Mas agora ele pode ser utilizados também envia para qualquer pessoa ou grupo no whatsapp, cadastrado no banco de dados.
 
-
+O programa principal está no caminho **'Scr/scripts/'**
 Deve baixar os 3 módulos  e as configurações do banco de dados MySQL que estão neste caminho:
 
 [1] *TkinterGUI.py*
