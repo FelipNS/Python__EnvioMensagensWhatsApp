@@ -19,4 +19,3 @@ Script contendo todas as funcionalidade que deixam a interface gráfica interati
 
 ## dataColectot.py
 Script que realiza a coleta e envio das menssagens e midias no whatsapp.
-
