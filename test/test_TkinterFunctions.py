@@ -6,7 +6,7 @@ import mysql.connector
 from mysql.connector import errorcode
 
 def conect_db():
-    db_connection = mysql.connector.connect(host='localhost', user='root', passwd='1593574862', database='classes')
+    db_connection = mysql.connector.connect(host='localhost', user='root', passwd='', database='classes')
     return db_connection
 
 try:
