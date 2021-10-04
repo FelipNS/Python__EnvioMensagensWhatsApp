@@ -1,6 +1,6 @@
 # ENVIO DE ARQUIVO PELO WHATSAPP
 
-#### O programa foi desenvolvido para resolver ador da minha mãe que é professora eque todo dia precisava enviar as atividades manualmente para os alunos. Mas agora ele pode ser utilizados também envia para qualquer pessoa ou grupo no whatsapp, cadastrado no banco de dados.
+#### O programa foi desenvolvido para resolver a dor da minha mãe que é professora e que todo dia precisava enviar as atividades manualmente para os alunos. Mas agora ele pode ser utilizados também para enviar para qualquer pessoa ou grupo no whatsapp cadastrado no banco de dados.
 
 O programa principal está no caminho **'Scr/scripts/'**
 Deve baixar os 3 módulos  e as configurações do banco de dados MySQL que estão neste caminho:
