@@ -9,7 +9,7 @@ Deve baixar os 3 módulos que estão neste caminho:
 
 [3] *dataColector.py*
 
-**FUNCIONALIDADES DE CADA SCRIPT CITADO**
+# FUNCIONALIDADES DE CADA SCRIPT CITADO
 
 ## TkinterGUI.py
 Interface principal e que dese ser excutada na máquina para utilizar o programa.
