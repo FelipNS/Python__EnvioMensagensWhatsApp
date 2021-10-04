@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import mysql.connector
-from mysql.connector import errorcode
+from mysql.connector import errorcode, errors
 from TkinterFunctions import *
 
 
@@ -13,6 +13,8 @@ except mysql.connector.Error as error:
         print("Database doesn't exist")
     elif error.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("User name or password is wrong")
+    elif error.errno == errorcode.CR_CONN_HOST_ERROR:
+        print('Server turned off!')
     else:
         print(error)
 
