@@ -1,0 +1,6 @@
+CREATE DATABASE classes;
+USE classes;
+CREATE TABLE classesName (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30) NOT NULL
+);
